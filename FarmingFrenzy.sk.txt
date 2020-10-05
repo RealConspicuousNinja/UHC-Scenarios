@@ -1,7 +1,7 @@
 command /farmingfrenzy [<text>]:
 	permission: skript.op
-	usage: "/farmingfrenzy <on/off>"
-	description: "Toggles âFarming Frenzy"
+	usage: "/farmingfrenzy <on/off>"
+	description: "Toggles âFarming Frenzy"
 	aliases: /ff
 	trigger:
 		if arg 1 is equal to "on":
