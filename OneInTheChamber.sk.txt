@@ -1,0 +1,31 @@
+command /oitc [<text>]:
+	permission: skript.op
+	usage: "/oitc <on/off>"
+	description: "Toggles One in the Chamber"
+	aliases: /oneinthechamber
+	trigger:
+		if arg 1 is equal to "on":
+			set {oitc} to true
+			broadcast "&2One in the Chamber enabled"
+		if arg 1 is equal to "off":
+			set {oitc} to false
+			broadcast "&4One in the Chamber disabled"
+		else:
+			message "/oitc <on/off>"
+			message "/oitcgiveitems - Gives all players OITC starter items"
+command /oitcgiveitems:
+	permission:skript.op
+	trigger:
+		give 1 arrow to all players
+		broadcast "&2One in the Chamber Items Given!"
+on click:
+	loop all items in the inventory of player:
+		if loop-item is a bow:
+			if loop-item is not enchanted:
+				enchant loop-item with power 1000
+on death of a player:
+	if {oitc} is true:
+		drop 1 arrow at the player's location
+on craft of arrow:
+	if {oitc} is true:
+		cancel the event

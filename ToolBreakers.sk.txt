@@ -1,0 +1,373 @@
+command /toolbreakers [<text>]:
+	permission: skript.op
+	usage: "/toolbreakers <on/off>"
+	aliases: /tb
+	trigger:
+		if arg 1 is equal to "on":
+			set {toolbreakers} to true
+			broadcast "&2Farming Frenzy enabled"
+			set {drop} to player's location
+			add 0.5 to y-coordinate of {drop}
+		if arg 1 is equal to "off":
+			set {toolbreakers} to false
+			broadcast "&4Farming Frenzy disabled"
+		else:
+			message "/toolbreakers <on/off>"
+command /tbinfo:
+	aliases: /toolbreakersinfo
+	trigger:
+		message "&9Breaking tools drops rewards!"
+		message "&3Affects all tools, swords, rods, and shears!"
+
+on tool break:
+		if {toolbreakers} is true:
+				if event-item is a iron shovel:
+						drop 9 gold nuggets
+						chance of 25%:
+								drop 1 gold ingot
+						chance of 5%:
+								drop 1 diamond
+						chance of 10%:
+								drop 5 lapis
+						chance of 10%:
+								drop 10 experience points
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a diamond shovel:
+						drop 6 gold ingots
+						drop 1 golden apple
+						chance of 25%:
+								drop 5 gold ingot
+						chance of 20%:
+								drop 3 diamond
+						chance of 10%:
+								drop 5 lapis
+						chance of 10%:
+								drop 10 experience points
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+						chance of 10%:
+								drop 1 ender pearl
+		
+				if event-item is a iron axe:
+						drop 9 gold nuggets
+						drop 1 apple
+						chance of 25%:
+								drop 3 gold ingots
+						chance of 5%:
+								drop 1 diamond
+						chance of 10%:
+								drop 5 lapis
+						chance of 10%:
+								drop 10 experience points
+						chance of 50%:
+								drop 1 bookshelf
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a diamond axe:
+						drop 6 gold ingots
+						drop 1 golden apple
+						chance of 25%:
+								drop 6 gold ingot
+						chance of 20%:
+								drop 3 diamonds
+						chance of 20%:
+								drop 5 lapis
+						chance of 10%:
+								drop 15 experience points
+						chance of 10%:
+								drop 15 experience points
+						chance of 50%:
+								drop 3 bookshelf
+						chance of 50%:
+								drop 1 bookshelf
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a hoe:
+						drop 9 gold nuggets
+						chance of 25%:
+								drop 1 gold ingot
+				if event-item is a diamond hoe:
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a iron hoe:
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a iron pickaxe:
+						drop 3 iron ingots
+						drop 5 experience points
+						chance of 25%:
+								drop 1 book
+						chance of 25%:
+								drop 5 gold ingots
+						chance of 20%:
+								drop 1 diamond
+						chance of 30%:
+								drop 1 stone pickaxe:130
+						chance of 10%:
+								drop 5 lapis
+						chance of 50%:
+								drop 10 experience points
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a diamond pickaxe:
+						drop 8 gold ingots
+						drop 40 experience points
+						drop 1 book
+						chance of 25%:
+								drop 4 obsidian
+						chance of 25%:
+								drop 1 book
+						chance of 25%:
+								drop 1 iron pickaxe:240
+						chance of 25%:
+								drop 1 gold block
+						chance of 20%:
+								drop 3 diamonds
+						chance of 10%:
+								drop 1 enchantment table
+						chance of 20%:
+								drop 5 lapis
+						chance of 1%:
+								drop 1 enchanted golden apple
+				if event-item is a wooden pickaxe:
+						drop 8 oak logs
+						drop 5 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 10 arrows
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a wooden shovel:
+						drop 2 oak logs
+						drop 5 experience points
+						chance of 50%:
+								drop 2 sticks
+						chance of 50%:
+								drop 10 arrows
+						chance of 50%:
+								drop 1 gold ingot
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a wooden axe:
+						drop 16 oak logs
+						drop 5 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 2 apples
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 10 arrows
+						chance of 50%:
+								drop 1 bookshelf
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a stone pickaxe:
+						drop 3 iron ingots
+						drop 10 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 30%:
+								drop 1 gold pickaxe:10
+						chance of 50%:
+								drop 4 redstone dust
+						chance of .5%:
+								drop 1 enchanted golden apple
+				
+				if event-item is a stone axe:
+						drop 3 iron ingots
+						drop 10 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 16 oak planks
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a stone shovel:
+						drop 3 iron ingots
+						drop 10 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 10 flint
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a gold shovel:
+						drop 6 gold nuggets
+						drop 20 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 1 golden apple
+						chance of 1%:
+								drop 1 enchanted golden apple
+				if event-item is a gold axe:
+						drop 12 gold nuggets
+						drop 20 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 10 experience points
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 75%:
+								drop 1 apple
+						chance of 50%:
+								drop 1 golden apple
+						chance of 50%:
+								drop 1 bookshelf
+						chance of 1%:
+								drop 1 enchanted golden apple
+				if event-item is a gold pickaxe:
+						drop 12 gold nuggets
+						drop 20 experience points
+						chance of 50%:
+								drop 4 sticks
+						chance of 50%:
+								drop 10 experience points
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 2 gold ingots
+						chance of 50%:
+								drop 1 iron pickaxe:200
+						chance of 5%:
+								drop 1 diamond pickaxe:1000
+						chance of 20%:
+								drop 1 gold sword
+						chance of 50%:
+								drop 1 golden apple
+						chance of 1%:
+								drop 1 enchanted golden apple
+				if event-item is a gold sword:
+						drop 12 gold nuggets
+						drop 20 experience points
+
+						chance of 50%:
+								drop 10 experience points
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 10%:
+								drop 1 diamond
+						chance of 75%:
+								drop 1 golden apple
+						chance of 1%:
+								drop 1 enchanted golden apple
+				if event-item is a stone sword:
+						drop 6 gold nuggets
+						drop 10 experience points
+						chance of 50%:
+								drop 15 experience points
+						chance of 50%:
+								drop 2 string
+						chance of 50%:
+								drop 1 gunpowder
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 5%:
+								drop 1 diamond
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a wooden sword:
+						drop 3 gold nuggets
+						drop 10 experience points
+						chance of 50%:
+								drop 15 experience points
+						chance of 50%:
+								drop 2 string
+						chance of 50%:
+								drop 16 oak planks
+						chance of 50%:
+								drop 1 gold ingot
+						chance of 50%:
+								drop 1 wooden axe:58
+						chance of 5%:
+								drop 1 diamond
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a iron sword:
+						drop 3 gold nuggets
+						drop 30 experience points
+						chance of 50%:
+								drop 15 experience points
+						chance of 50%:
+								drop 2 string
+						chance of 10%:
+								drop 1 splash potion of weakness
+						chance of 75%:
+								drop 1 gold ingot
+						chance of 20%:
+								drop 1 diamond
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a diamond sword:
+						drop 6 gold ingots
+						drop 50 experience points
+						chance of 50%:
+								drop 15 experience points
+						chance of 50%:
+								drop 2 string
+						chance of 10%:
+								drop 1 splash potion of slowness
+						chance of 50%:
+								drop 1 splash potion of healing
+						chance of 75%:
+								drop 1 gold ingot
+						chance of 20%:
+								drop 1 gold block
+						chance of 50%:
+								drop 1 diamond
+						chance of 50%:
+								drop 2 diamonds
+						chance of 50%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+
+				if event-item is a fishing rod:
+						drop 2 gold ingots
+						drop 15 experience points
+						drop 1 string
+						chance of 25%:
+								drop 1 fishing rod:60
+						chance of 25%:
+								drop 1 gold ingot
+						chance of 10%:
+								drop 1 golden apple
+						chance of .5%:
+								drop 1 enchanted golden apple
+				if event-item is a shears:
+						drop 2 apples
+						chance of 25%:
+								drop 1 golden apple
+						chance of 25%:
+								drop 2 iron ingots
+						chance of .5%:
+								drop 1 enchanted golden apple

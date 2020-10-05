@@ -1,0 +1,47 @@
+on damage:
+	attacker is a player
+	attacker is alive
+	victim is a player
+	victim is alive
+	damage was caused by projectile
+	projectile is an arrow
+	teleport victim to victim
+	set {_x} to x-coordinate of victim
+	set {_y} to y-coordinate of victim
+	set {_z} to z-coordinate of victim
+	set {_world} to world of victim
+	set {_yaw} to yaw of victim
+	set {_pitch} to pitch of victim
+	teleport victim to location({_x}, {_y}, {_z}, {_world}, {_yaw} + 180, {_pitch})
+
+
+command /turnaway [<text>]:
+	permission: skript.op
+	usage: "/turnaway <on/off>"
+	description: "Toggles âTurnAway!"
+	aliases: /ta
+	trigger:
+		if arg 1 is equal to "on":
+			set {turnaway} to true
+			broadcast "&2TurnAway enabled"
+		if arg 1 is equal to "off":
+			set {turn away} to false
+			broadcast "&4TurnAway disabled"
+		else:
+			message "/turnaway <on/off>"
+on damage:
+	if {turnaway} is true:
+		attacker is a player
+		attacker is alive
+		victim is a player
+		victim is alive
+		damage was caused by projectile
+		projectile is an arrow
+		teleport victim to victim
+		set {_x} to x-coordinate of victim
+		set {_y} to y-coordinate of victim
+		set {_z} to z-coordinate of victim
+		set {_world} to world of victim
+		set {_yaw} to yaw of victim
+		set {_pitch} to pitch of victim
+		teleport victim to location({_x}, {_y}, {_z}, {_world}, {_yaw} + 180, {_pitch})

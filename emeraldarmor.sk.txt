@@ -1,0 +1,5 @@
+on load:
+	register new shaped recipe for diamond helmet of protection 4 named "Emerald Helmet" using emerald, emerald, emerald, emerald, air, emerald, air, air, air
+	register new shaped recipe for diamond chestplate of protection 4 named "Emerald Chestplate" using emerald, air, emerald, emerald, emerald, emerald, emerald, emerald, emerald
+	register new shaped recipe for diamond leggings of protection 4 named "Emerald Leggings" using emerald, emerald, emerald, emerald, air, emerald, emerald, air, emerald
+	register new shaped recipe for diamond boots of protection 4 named "Emerald Boots" using air, air, air, emerald, air, emerald, emerald, air, emerald

@@ -1,0 +1,144 @@
+command /farmingfrenzy [<text>]:
+	permission: skript.op
+	usage: "/farmingfrenzy <on/off>"
+	description: "Toggles âFarming Frenzy"
+	aliases: /ff
+	trigger:
+		if arg 1 is equal to "on":
+			set {farmingfrenzy} to true
+			broadcast "&2Farming Frenzy enabled"
+		if arg 1 is equal to "off":
+			set {farmingfrenzy} to false
+			broadcast "&4Farming Frenzy disabled"
+		else:
+			message "/farmingfrenzy <on/off>"
+			message "/ffinfo - Displays Drop Rates"
+			message "/ffgiveitems - Gives all players FarmingFrenzy Starter Items"
+command /ffinfo:
+	trigger:
+		message "&9[All Crops]: All growing crops and stems drop 1-18 Gold Nuggets and XP, all fully grown crops and Pumpkins/Melons drop 2-8 Gold Ingots and have a 0.5%% chance of dropping an Enchanted Golden Apple"
+		message "&2[Wheat Crops]: Fully Grown Wheat - chance of 50%% to drop 1 Golden Apple"
+		message "&6[Carrot Crops]: Fully Grown Carrots Drops 1 Golden Carrot, chance of 10%% to drop 1 Bone"
+		message "&8[Potato Crops]: Fully Grown Potatoes Drops 1 Baked Potato, chance of 10%% to drop 1 Diamond"
+		message "&d[Hoes]: All hoes are enchanted with Knockback I, diamond hoes are enchanted with Knockback II"
+		message "&e[Other]: Hay Bales drop 1 golden apple, growing trees drops 1 golden apple"
+command /ffgiveitems:
+	permission:skript.op
+	trigger:
+		give 3 bones to all players
+		broadcast "&2Farming Frenzy Items Given!"
+on break of crops:0-6:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 2 experience points
+				drop ((random integer between 2 and 19)-1) of gold nuggets
+on break of crops:7:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				chance of .5%:
+						drop 1 enchanted golden apple
+						stop
+				chance of 50%:
+						drop 1 golden apple
+						stop
+				drop (random integer between 2 and 8) of gold ingots
+				drop 6 experience points
+				drop 1 wheat
+				
+on break of carrot plant:0-6:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 2 experience points
+				drop ((random integer between 2 and 19)-1) of gold nuggets
+on break of carrot plant:7:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				chance of .5%:
+						drop 1 enchanted golden apple
+						stop
+				drop 1 golden carrot
+				drop (random integer between 2 and 8) of gold ingots
+				drop 6 experience points
+				chance of 10%:
+						drop 1 bone
+on break of potato plant:0-6:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 3 experience points
+				drop ((random integer between 2 and 19)-1) of gold nuggets
+on break of potato plant:7:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 7 experience points
+				chance of .5%:
+						drop 1 enchanted golden apple
+						stop
+				drop 1 baked potato
+				drop (random integer between 2 and 8) of gold ingots
+				chance of 10%:
+						drop 1 diamond
+on break of pumpkin stem:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 2 experience points
+				drop ((random integer between 2 and 19)-1) of gold nuggets
+on break of melon stem::
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 2 experience points
+				drop ((random integer between 2 and 19)-1) of gold nuggets
+on break of pumpkin:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 6 experience points
+				chance of .5%:
+						drop 1 enchanted golden apple
+						stop
+				drop (random integer between 2 and 8) of gold ingots
+on break of melon:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop (random integer between 2 and 8) of gold ingots
+				drop 6 experience points
+				chance of .5%:
+						drop 1 enchanted golden apple
+						stop
+				chance of 10%:
+						drop 1 melon
+on break of hay block:
+		if {farmingfrenzy} is true:
+				set block to air
+				cancel the event
+				drop 3 experience points
+				drop 1 golden apple
+on grow of tree:
+		if {farmingfrenzy} is true:
+				drop 1 golden apple
+on click:
+	loop all items in the inventory of player:
+		if loop-item is a golden hoe:
+			if loop-item is not enchanted:
+				enchant loop-item with knockback 1
+		if loop-item is a wooden hoe:
+			if loop-item is not enchanted:
+				enchant loop-item with knockback 1
+		if loop-item is a iron hoe:
+			if loop-item is not enchanted:
+				enchant loop-item with knockback 1
+		if loop-item is a stone hoe:
+			if loop-item is not enchanted:
+				enchant loop-item with knockback 1
+		if loop-item is a diamond hoe:
+			if loop-item is not enchanted:
+				enchant loop-item with knockback 2
+	

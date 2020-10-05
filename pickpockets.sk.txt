@@ -1,0 +1,26 @@
+command /pickpockets [<text>]:
+	permission: skript.op
+	usage: "/pickpockets <on/off>"
+	description: "Toggles âPickpockets"
+	trigger:
+		if arg 1 is equal to "on":
+			set {pickpockets} to true
+			broadcast "&2Pickpockets enabled"
+		if arg 1 is equal to "off":
+			set {pickpockets} to false
+			broadcast "&4Pickpocketss disabled"
+		else:
+			message "/pickpockets <on/off>"
+on right click on player:
+	if {pickpockets} is true:
+		if {cooldown.%player%} is set:
+			cancel event
+		if {cooldown.%player%} isn't set:
+			set {cooldown.%player%} to false
+		if {cooldown.%player%} is false:
+			set {cooldown.%player%} to true
+			open target player's inventory to player
+			wait 1 second
+			close player's inventory
+			wait 20 seconds
+			set {cooldown.%player%} to false
